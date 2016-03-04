@@ -44,7 +44,7 @@
    <!--BatchIdGenerator关系-->
    <cache id="com.ai.appframe2.complex.cache.impl.BatchIdGeneratorCacheImpl"/>
    
-   <cache id="com.ai.appframe2.complex.cache.impl.CfgSpecialServicesCacheImpl"/>
+<!--    <cache id="com.ai.appframe2.complex.cache.impl.CfgSpecialServicesCacheImpl"/> -->
    
 <!--    <cache id="com.ai.appframe2.complex.cache.impl.CfgDirtyDataContrCacheImpl" init="true"/> -->
 

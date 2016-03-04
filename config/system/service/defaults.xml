@@ -4,14 +4,15 @@
 全局默认配置信息
 -->
 <defaults>
-
-<!--   <interceptor> -->
-<!--         <clazz name="com.ai.appframe2.complex.service.proxy.impl.AuditLogRecordIntercepterImpl" /> -->
-<!--   </interceptor> -->
   <!--中心的类型和实现类的对应关系-->
   <center>
     <!--  <property name="BillId:KeyNum" value="com.ai.common.center.BillIdCenterImpl"/>-->
   </center>
+  
+<!--   <interceptor> -->
+<!--         <clazz name="com.ai.appframe2.complex.service.proxy.impl.AuditLogRecordIntercepterImpl" /> -->
+<!--   </interceptor> -->
+
   <!--默认代理调用方式.默认采用pojo的模式进行调用，采用的实现类为配置的实现类-->
   <proxy invoke="pojo" type="primitive">
     <clazz name="com.ai.appframe2.complex.service.impl.LocalServiceInvokeImpl">
@@ -27,25 +28,9 @@
     <mapping>
       <property name="com.ai.appframe2.complex.self.service.base" value="base"/>
       <property name="com.ai.appframe2.complex.self.service.check" value="base"/>
-      <property name="com.ai.secframe" value="sec"/>
-      <property name="com.ailk.appengine.secres.service" value="sec"/>
-      <property name="com.ailk.example.orgmodel.service" value="sec"/>
       <property name="com.ailk.common.service" value="base"/>
       <property name="com.ai.frame" value="base"/>
-      <property name="com.ailk.demo.cust.service" value="base"/>
-      <property name="com.ailk.so.pageflow.service" value="base"/>
-      <property name="com.ailk.appengine.common" value="base"/>
-      <property name="com.ailk.appengine.secres.rule.service" value="base"/>
-      <property name="com.ailk.appengine.secres.sysmgr.service" value="sec"/>
-  	  
-      <property name="com.ailk.appengine.res.pageframe.service" value="sec"/>
-      <property name="com.ailk.appengine.res.upload.service" value="sec"/>
-      <property name="com.ailk.example.abo" value="base" />
-      <property name="com.ailk.example" value="base"/>
-      <property name="com.ailk.demo.cust" value="base"/>
-      <property name="com.ailk.demo.product" value="base"/>
       <property name="com.ai.appframe2.complex.self.specialsv" value="base" />
-      <property name="com.ailk.demo.acct" value="base"></property>
     </mapping>
   </transaction>
   <!--默认数据源信息-->
@@ -133,25 +118,9 @@
     <mapping>
       <property name="com.ai.appframe2.complex.self.dao.base" value="base"/>
       <property name="com.ai.appframe2.complex.self.service.check" value="base"/>
-      <property name="com.ai.secframe" value="sec"/>
-      <property name="com.ailk.appengine.secres.dao" value="sec"/>
-      <property name="com.ailk.example.orgmodel.dao" value="sec"/>
       <property name="com.ai.frame" value="base"/>
       <property name="com.ailk.common.dao" value="base"/>
-      <property name="com.ailk.demo.dao" value="base"/>
-      <property name="com.ailk.so.pageflow.dao" value="base"/>
-      <property name="com.ailk.appengine.common" value="base"/>
-      <property name="com.ailk.appengine.secres.rule.dao" value="base"/>
-      <property name="com.ailk.appengine.secres.sysmgr.dao" value="sec"/>
-      
-      <property name="com.ailk.appengine.res.pageframe.dao" value="sec"/>
-      <property name="com.ailk.appengine.res.upload.dao" value="sec"/>
-      <property name="com.ailk.example.abo" value="base" />
-      <property name="com.ailk.example" value="base"/>
-      <property name="com.ailk.demo.cust" value="base"/>
-      <property name="com.ailk.demo.product" value="base"/>
       <property name="com.ai.appframe2.complex.self.specialsv" value="base" />
-      <property name="com.ailk.demo.acct" value="base"></property>
     </mapping>
   </datasource>
   <!--包含的服务配置文件-->
