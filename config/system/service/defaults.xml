@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+全局默认配置信息
+-->
+<defaults>
+
+<!--   <interceptor> -->
+<!--         <clazz name="com.ai.appframe2.complex.service.proxy.impl.AuditLogRecordIntercepterImpl" /> -->
+<!--   </interceptor> -->
+  <!--中心的类型和实现类的对应关系-->
+  <center>
+    <!--  <property name="BillId:KeyNum" value="com.ai.common.center.BillIdCenterImpl"/>-->
+  </center>
+  <!--默认代理调用方式.默认采用pojo的模式进行调用，采用的实现类为配置的实现类-->
+  <proxy invoke="pojo" type="primitive">
+    <clazz name="com.ai.appframe2.complex.service.impl.LocalServiceInvokeImpl">
+<!--     	<property name="svnamebuilder" value="com.ai.appframe2.complex.service.impl.FlyingServiceName4TenantBuilderImpl"/> -->
+    </clazz>
+  </proxy>
+  <!--默认事务信息.默认采用Required的方式进行事务操作，采用的实现类为配置的实现类-->
+  <transaction type="Required">
+    <!--<clazz name="com.ai.appframe2.complex.transaction.impl.LocalTransactionImpl"/>-->
+    <clazz name="com.ai.appframe2.complex.transaction.impl.LocalMutilTransactionImpl"/>
+    <!--<listener name="com.ailk.appengine.complex.transaction.listener.TestListenerImpl"/>-->
+    <!--映射每个服务模块对应的事务数据源，可以具体到类名-->
+    <mapping>
+      <property name="com.ai.appframe2.complex.self.service.base" value="base"/>
+      <property name="com.ai.appframe2.complex.self.service.check" value="base"/>
+      <property name="com.ai.secframe" value="sec"/>
+      <property name="com.ailk.appengine.secres.service" value="sec"/>
+      <property name="com.ailk.example.orgmodel.service" value="sec"/>
+      <property name="com.ailk.common.service" value="base"/>
+      <property name="com.ai.frame" value="base"/>
+      <property name="com.ailk.demo.cust.service" value="base"/>
+      <property name="com.ailk.so.pageflow.service" value="base"/>
+      <property name="com.ailk.appengine.common" value="base"/>
+      <property name="com.ailk.appengine.secres.rule.service" value="base"/>
+      <property name="com.ailk.appengine.secres.sysmgr.service" value="sec"/>
+  	  
+      <property name="com.ailk.appengine.res.pageframe.service" value="sec"/>
+      <property name="com.ailk.appengine.res.upload.service" value="sec"/>
+      <property name="com.ailk.example.abo" value="base" />
+      <property name="com.ailk.example" value="base"/>
+      <property name="com.ailk.demo.cust" value="base"/>
+      <property name="com.ailk.demo.product" value="base"/>
+      <property name="com.ai.appframe2.complex.self.specialsv" value="base" />
+      <property name="com.ailk.demo.acct" value="base"></property>
+    </mapping>
+  </transaction>
+  <!--默认数据源信息-->
+  <datasource>
+    <!--根据base取数据库配置，然后以本配置中的覆盖除base以外的连接池的配置-->
+    <!--默认 type=dbcp  db=oracle -->
+    <!--映射每个DAO模块对应的操作数据源-->
+    <clazz name="com.ai.appframe2.complex.datasource.impl.LocalMutilDataSourceImpl">
+      <property name="tableName" value="cfg_db_acct"/>
+    </clazz>
+<!--     <clazz name="com.ai.appframe2.complex.datasource.impl.LocalMutilDataSourceImpl"> -->
+<!-- 		<property name="tableName" value="cfg_db_acct" /> -->
+<!-- 		<property name="urlTableName" value="cfg_db_url" /> -->
+<!-- 		<property name="relatTableName" value="cfg_db_relat" /> -->
+
+<!-- 		<property name="prefetch" value="true" /> -->
+<!-- 		<property name="prefetch.driverClassName" value="oracle.jdbc.OracleDriver" /> -->
+<!-- 		<property name="prefetch.url" -->
+<!-- 			value="jdbc:oracle:thin:@(description=(address_list= (address=(host=pkgweg3db11) (protocol=tcp)(port=8895))(address=(host=pkgweg3db12)(protocol=tcp)(port=8895))(load_balance=no)(failover=yes))(connect_data=(service_name=WEG3DB1))(FAILOVER_MODE=(TYPE=SELECT)(METHOD=BASIC)(RETRIES=180)(DELAY=5)))" /> -->
+<!-- 		<property name="prefetch.username" value="APPENG1C" /> -->
+<!-- 		<property name="prefetch.password" value="XXXX" /> -->
+<!-- 		<property name="prefetch.initialSize" value="10" /> -->
+<!-- 		<property name="prefetch.maxActive" value="200" /> -->
+<!-- 		<property name="prefetch.maxIdle" value="50" /> -->
+<!--     </clazz> -->
+    <!-- 
+    <pool name="base" primary="true">
+       <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+	   <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+	   <property name="username" value="base_55demo"/>
+	   <property name="password" value="base_55demo"/>
+    </pool>
+     -->
+    <!--  
+     <pool name="sec">
+      <property name="initialSize" value="0"/>
+      <property name="maxActive" value="2"/>
+      <property name="maxIdle" value="2"/>
+	 </pool>
+	  -->
+      <!--
+	   <property name="driverClassName" value="com.ibm.db2.jcc.DB2Driver"/>
+	   <property name="url" value="jdbc:db2://10.11.16.25:50000/NJDEV:currentSchema=BASE;"/>
+	   <property name="username" value="yanghua"/>
+	   <property name="password" value="yanghua"/>
+	   -->
+      <!-- 
+	   <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	   <property name="url" value="jdbc:mysql://localhost/base?rewriteBatchedStatements=true&amp;cachePrepStmts=true&amp;useServerPrepStmts=true&amp;useUnicode=true&amp;characterEncoding=GBK&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+	   <property name="username" value="base"/>
+	   <property name="password" value="base"/>
+	   -->
+	   <!-- 
+	    <pool name="base" primary="true">
+	    <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+	    <property name="url" value="jdbc:oracle:thin:@10.11.20.81:1521:njdev81"/>
+		   <property name="username" value="nbase"/>
+		   <property name="password" value="nbase"/>
+		     <property name="initialSize" value="0"/>
+		     <property name="maxActive" value="2"/>
+		     <property name="maxIdle" value="2"/>
+    </pool>
+     -->
+     <!-- 
+     <pool name="base" primary="true">
+		  	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		   <property name="url" value="jdbc:mysql://10.11.20.126:3310/base2013?rewriteBatchedStatements=true&amp;cachePrepStmts=true&amp;useServerPrepStmts=true&amp;useUnicode=true&amp;characterEncoding=GBK&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+		   <property name="username" value="base2013"/>
+		   <property name="password" value="password"/>
+		     <property name="initialSize" value="0"/>
+		     <property name="maxActive" value="2"/>
+		     <property name="maxIdle" value="2"/>
+    </pool>
+     -->
+      
+     <pool name="base" primary="true" db="MYSQL" type="DBCP">
+		  	<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		   <property name="url" value="jdbc:mysql://127.0.0.1:3306/base?rewriteBatchedStatements=true&amp;cachePrepStmts=true&amp;useServerPrepStmts=true&amp;useUnicode=true&amp;characterEncoding=utf-8&amp;autoReconnect=true&amp;failOverReadOnly=false"/>
+		   <property name="username" value="base" />
+		   <property name="password" value="1qaz2wsx" />
+		     <property name="initialSize" value="5" />
+		     <property name="maxActive" value="10" />
+		     <property name="maxIdle" value="2" />
+    </pool>
+    <mapping>
+      <property name="com.ai.appframe2.complex.self.dao.base" value="base"/>
+      <property name="com.ai.appframe2.complex.self.service.check" value="base"/>
+      <property name="com.ai.secframe" value="sec"/>
+      <property name="com.ailk.appengine.secres.dao" value="sec"/>
+      <property name="com.ailk.example.orgmodel.dao" value="sec"/>
+      <property name="com.ai.frame" value="base"/>
+      <property name="com.ailk.common.dao" value="base"/>
+      <property name="com.ailk.demo.dao" value="base"/>
+      <property name="com.ailk.so.pageflow.dao" value="base"/>
+      <property name="com.ailk.appengine.common" value="base"/>
+      <property name="com.ailk.appengine.secres.rule.dao" value="base"/>
+      <property name="com.ailk.appengine.secres.sysmgr.dao" value="sec"/>
+      
+      <property name="com.ailk.appengine.res.pageframe.dao" value="sec"/>
+      <property name="com.ailk.appengine.res.upload.dao" value="sec"/>
+      <property name="com.ailk.example.abo" value="base" />
+      <property name="com.ailk.example" value="base"/>
+      <property name="com.ailk.demo.cust" value="base"/>
+      <property name="com.ailk.demo.product" value="base"/>
+      <property name="com.ai.appframe2.complex.self.specialsv" value="base" />
+      <property name="com.ailk.demo.acct" value="base"></property>
+    </mapping>
+  </datasource>
+  <!--包含的服务配置文件-->
+
+  <!--平台-->
+  <include type="sv" classpath="system/service/appframe-service.xml"/>
+</defaults>

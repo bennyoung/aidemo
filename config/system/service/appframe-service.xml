@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<services>
+	<service id="RemoteDataStore" invoke="pojo" type="primitive">
+		<property name="interfaceClass" value="com.ai.appframe2.common.RemoteDataStore" />
+		<property name="implClass" value="com.ai.appframe2.bo.RemoteDataStoreImpl" />
+	</service>
+	<service id="com.ai.appframe2.vm.WorkflowEngine" invoke="pojo"
+		type="primitive">
+		<property name="interfaceClass" value="com.ai.appframe2.vm.workflow.WorkflowEngine" />
+		<property name="implClass" value="com.ai.appframe2.vm.workflow.WorkflowEngineImpl" />
+	</service>
+
+	<service id="com.ai.appframe.CommonTreeService" invoke="pojo" type="primitive">
+		<property name="interfaceClass" value="com.ai.appframe2.util.tree.ICommonTreeService" />
+		<property name="implClass" value="com.ai.appframe2.util.tree.impl.DefaultTreeService" />
+	</service>
+
+<!-- 	扫描合同批量保存独立事务配置 by houquan -->
+<!-- 	<service id="com.asiainfo.crm.agreement.monitor.penalty.service.interfaces.IAgrAgreementAnalyseSV" -->
+<!-- 		invoke="pojo" type="primitive"> -->
+<!-- 		<property name="interfaceClass" -->
+<!-- 			value="com.asiainfo.crm.agreement.monitor.penalty.service.interfaces.IAgrAgreementAnalyseSV" /> -->
+<!-- 		<property name="implClass" -->
+<!-- 			value="com.asiainfo.crm.agreement.monitor.penalty.service.impl.AgrAgreementAnalyseSVImp" /> -->
+<!-- 		<tx> -->
+<!-- 			<method name="saveAgrAgrAnaW" txattr="RequiresNew" /> -->
+<!-- 			<method name="saveAgaAgrUserAnaW" txattr="RequiresNew" /> -->
+<!-- 		</tx> -->
+<!-- 	</service> -->
+
+<!-- 	扫描罚金计算保存结果独立事务配置 by houquan -->
+<!-- 	<service id="com.asiainfo.crm.agreement.monitor.result.service.interfaces.IAgrMonitorResultSV" -->
+<!-- 		invoke="pojo" type="primitive"> -->
+<!-- 		<property name="interfaceClass" -->
+<!-- 			value="com.asiainfo.crm.agreement.monitor.result.service.interfaces.IAgrMonitorResultSV" /> -->
+<!-- 		<property name="implClass" -->
+<!-- 			value="com.asiainfo.crm.agreement.monitor.result.service.impl.AgrMonitorResultSVImpl" /> -->
+<!-- 		<tx> -->
+<!-- 			<method name="saveMonitorResult" txattr="RequiresNew" /> -->
+<!-- 		</tx> -->
+<!-- 	</service> -->
+</services>
