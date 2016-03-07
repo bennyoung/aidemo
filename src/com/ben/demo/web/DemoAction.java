@@ -34,6 +34,7 @@ public class DemoAction extends BaseAction {
 		System.out.println(aa);
 		IDemoSV sv = (IDemoSV)ServiceFactory.getService(IDemoSV.class);
 		sv.test(aa);
+		response.getWriter().write("yangbin");
 	}
 	
 }

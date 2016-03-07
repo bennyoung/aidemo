@@ -56,22 +56,6 @@
     <servlet-class>com.ai.appframe2.web.BaseServer</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>gridturnpage</servlet-name>
-    <servlet-class>com.ai.appframe2.web.tag.GridTurnpage</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>dbformrefresh</servlet-name>
-    <servlet-class>com.ai.appframe2.web.tag.DBFormRefresh</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>dbtreerefresh</servlet-name>
-    <servlet-class>com.ai.appframe2.web.tag.DBTreeRefreshServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>dbtreenewservlet</servlet-name>
-    <servlet-class>com.ai.appframe2.web.tag.dbtree.DBTreeServlet</servlet-class>
-  </servlet>
-  <servlet>
     <servlet-name>CentralControl</servlet-name>
     <servlet-class>com.ai.appframe2.web.action.CentralControlServlet</servlet-class>
   </servlet>
@@ -96,24 +80,8 @@
     <url-pattern>/listdatasourcequery</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>gridturnpage</servlet-name>
-    <url-pattern>/gridturnpage</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>dbformrefresh</servlet-name>
-    <url-pattern>/dbformrefresh</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>dbtreerefresh</servlet-name>
-    <url-pattern>/dbtreerefresh</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
     <servlet-name>VerifyCodeLoginServlet</servlet-name>
     <url-pattern>/VerifyCodeLoginServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>dbtreenewservlet</servlet-name>
-    <url-pattern>/dbtreenewservlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>vertifycodeservlet</servlet-name>
