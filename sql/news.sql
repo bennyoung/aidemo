@@ -5,7 +5,7 @@ create table news
   news_title    		VARCHAR(200),
   news_content          VARCHAR(2000),
   items_id				INT(12),
-  writer				VARCHAR(20),
+  author				VARCHAR(20),
   commend				CHAR(1),
   clicked				INT(5),
   image_url			    VARCHAR(400),            
